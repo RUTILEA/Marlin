@@ -680,9 +680,10 @@
 //
 // Custom board (with custom PIO env)
 //
-
+#elif MB(F407_CUSTOM)
+  #include "stm32f4/pins_F407_custom.h"                      //                                        env:custom
 #elif MB(CUSTOM)
-  #include "pins_custom.h"                      //                                        env:custom
+  #include "stm32f4/pins_F407_custom.h"                      //                                        env:custom
 
 //
 // Linux Native Debug board
