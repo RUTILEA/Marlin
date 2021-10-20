@@ -79,8 +79,9 @@
 // Heaters / Fans
 //
 #define HEATER_0_PIN                           2
-#define FAN_PIN                               13
-#define HEATER_BED_PIN                         4
+#define FAN1_PIN                               13
+#define FAN2_PIN                               4
+#define HEATER_BED_PIN                         2
 
 // SPI
 
