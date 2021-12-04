@@ -80,8 +80,9 @@
 //
 #define HEATER_0_PIN                           2
 #define FAN1_PIN                               13
-#define FAN2_PIN                               4
+// #define FAN2_PIN                               4
 #define HEATER_BED_PIN                         2
+#define KILL_hogee                               4
 
 // SPI
 
