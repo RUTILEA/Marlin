@@ -1125,6 +1125,15 @@ inline void tmc_standby_setup() {
  *  - Open Touch Screen Calibration screen, if not calibrated
  *  - Set Marlin to RUNNING State
  */
+
+bool flag_hogee = false;
+
+void kill_hogee_ISR(){
+  parser.command_letter='M';
+  parser.codenum=410;
+  flag_hogee=true;
+}
+
 void setup() {
   #ifdef FASTIO_INIT
     FASTIO_INIT();
@@ -1630,6 +1639,8 @@ void setup() {
   marlin_state = MF_RUNNING;
 
   SETUP_LOG("setup() completed.");
+  pinMode(KILL_hogee, INPUT);
+  attachInterrupt(digitalPinToInterrupt(KILL_hogee), kill_hogee_ISR, HIGH);
 }
 
 /**
@@ -1659,6 +1670,9 @@ void loop() {
     endstops.event_handler();
 
     TERN_(HAS_TFT_LVGL_UI, printer_state_polling());
-
+    if (flag_hogee){
+      gcode.process_parsed_command();
+      flag_hogee=false;
+    }
   } while (ENABLED(__AVR__)); // Loop forever on slower (AVR) boards
 }
