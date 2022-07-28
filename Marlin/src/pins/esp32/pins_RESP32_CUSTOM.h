@@ -31,7 +31,3 @@
 
 #include "pins_ESPA_common.h"
 
-//
-// I2S (steppers & other output-only pins)
-//
-#define I2S_STEPPER_STREAM
