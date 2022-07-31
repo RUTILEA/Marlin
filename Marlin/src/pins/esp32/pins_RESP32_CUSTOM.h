@@ -34,7 +34,7 @@
 #define X_STOP_PIN                            34
 #define Y_STOP_PIN                            35
 #define Z_STOP_PIN                            15
-
+#define I_STOP_PIN                             2
 //
 // Steppers
 //
@@ -50,22 +50,23 @@
 #define Z_DIR_PIN                             12
 #define Z_ENABLE_PIN                X_ENABLE_PIN
 
-#define E0_STEP_PIN                           16
-#define E0_DIR_PIN                            17
-#define E0_ENABLE_PIN               X_ENABLE_PIN
+#define I_STEP_PIN                           16
+#define I_DIR_PIN                            17
+#define I_ENABLE_PIN               X_ENABLE_PIN
 
 //
 // Temperature Sensors
 //
-#define TEMP_0_PIN                            36  // Analog Input
-#define TEMP_BED_PIN                          39  // Analog Input
+// #define TEMP_0_PIN                            36  // Analog Input
+// #define TEMP_BED_PIN                          39  // Analog Input
 
 //
 // Heaters / Fans
 //
-#define HEATER_0_PIN                           2
 #define FAN_PIN                               13
-#define HEATER_BED_PIN                         4
+#define FAN_PIN1                               4
+// #define HEATER_0_PIN                           2
+// #define HEATER_BED_PIN                         4
 
 //
 // MicroSD card
@@ -75,3 +76,6 @@
 #define SD_SCK_PIN                            18
 #define SDSS                                   5
 #define USES_SHARED_SPI                           // SPI is shared by SD card with TMC SPI drivers
+
+#define I2C_SCL_PIN                           22
+#define I2C_SDA_PIN                           21
