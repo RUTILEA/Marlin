@@ -34,7 +34,7 @@
 #define X_STOP_PIN                            34
 #define Y_STOP_PIN                            35
 #define Z_STOP_PIN                            15
-#define I_STOP_PIN                             2
+#define I_STOP_PIN                            36
 //
 // Steppers
 //
