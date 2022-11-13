@@ -1,3 +1,92 @@
+# Marlinファームウェア
+### 環境構築
+Git をインストール
+https://git-scm.com/
+
+Visual Studio Codeをインストール
+https://azure.microsoft.com/ja-jp/products/visual-studio-code/
+
+拡張機能のPlatform IO をインストール
+https://platformio.org/install/ide?install=vscode
+
+本リポジトリを適当な場所にCloneする。
+
+```
+git clone git@github.com:RUTILEA/Marlin.git
+```
+
+Cloneしたディレクトリに移動する。
+
+```
+cd Marlin
+```
+
+案件ごとのブランチを作成する。
+
+```
+git checkout -b 作成するブランチ名 
+```
+
+# API
+
+PythonからMarlin基板に対してGcode（基板制御用信号）を送信するAPIを作成しました。
+pygrblのリポジトリを組み込みたいブランチにSubmoduleとして追加してください。
+https://github.com/RUTILEA/pygrbl
+手順は上記リポジトリのインストールの項目を参照。
+
+# ファームウェア書き込み
+ファームウェアの設定作業を行いボードに書き込む。
+VScode上で下のバーの➡(PlatformIO:upload)をクリックし書き込む。
+書き込み時にボード側で操作が必要なものもあります。
+
+## ファームウェアの設定変更
+### よく変える設定
+主に変更が必要な設定は
+```
+Configuration.h
+Configuration_adv.h
+```
+の2つのファイルに記載されてます。
+ここではよく変更する設定を示します。
+
+
+### Configuration.h
+
+
+| 名称 | 説明 |
+| --- | --- |
+| BAURATE                        | シリアルのボーレート                   | 
+| X_MIN_ENDSTOP_INVERTING        | エンドストップの論理                   |
+| DEFAULT_AXIS_STEPS_PER_UNIT    | 各軸のStep数 (1mm移動/1°回転するのに何パルス必要か)  |
+| DEFAULT_MAX_FEEDRATE           | 最大Feedrate (mm/s or °/s)                         |
+| DEFAULT_MAX_ACCELERATION       | 最大加速度                             |
+| INVERT_X_DIR                   | 軸の正方向を反転                         |
+| X_MIN_POS                      | 軸の最小位置                           |
+| X_MAX_POS                      | 軸の最大位置                           |
+| HOMING_FEEDRATE_MM_M           | ホーミング速度                         |
+
+
+### Configuration_adv.h
+| 名称 | 説明 |
+| --- | --- |
+HOMING_BUMP_MM                   | ホーミングした際に戻る距離
+HOMING_BUMP_DIVISOR              | ホーミングした際に何回戻るか
+MINIMUM_STEPPER_PULSE            | パルス幅
+
+
+## ※変更した設定は設定がわからなくならないように案件ごとにブランチを作成してGithubにPushするようにしましょう。
+
+### 効率的な設定方法
+
+
+
+
+
+
+
+
+
+
 <p align="center"><img src="buildroot/share/pixmaps/logo/marlin-outrun-nf-500.png" height="250" alt="MarlinFirmware's logo" /></p>
 
 <h1 align="center">Marlin 3D Printer Firmware</h1>
